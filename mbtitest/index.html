@@ -49,6 +49,24 @@
             11: {"title": "Question 11", "type": "JP", "A": "J", "B": "P"},
             12: {"title": "Question 12", "type": "JP", "A": "J", "B": "P"},
         }
+        var result = {
+            "ISTJ": {"animal": "hippo", "explain": "hippo explanation", "img": "hippo.jpg"},
+            "ISFJ": {"animal": "owl", "explain": "owl explanation", "img": "owl.jpg"},
+            "INFJ": {"animal": "buffalo", "explain": "buffalo explanation", "img": "buffalo.jpg"},
+            "INTJ": {"animal": "cheetah", "explain": "cheetah explanation", "img": "cheetah.jpg"},
+            "ISTP": {"animal": "sloth", "explain": "sloth explanation", "img": "sloth.jpg"},
+            "ISFP": {"animal": "turtle", "explain": "turtle explanation", "img": "turtle.jpg"},
+            "INFP": {"animal": "elephant", "explain": "elephant explanation", "img": "elephant.jpg"},
+            "INTP": {"animal": "chimpanzee", "explain": "chimpanzee explanation", "img": "chimpanzee.jpg"},
+            "ESTP": {"animal": "crocodile", "explain": "crocodile explanation", "img": "crocodile.jpg"},
+            "ESFP": {"animal": "meerkat", "explain": "meetkat explanation", "img": "meerkat.jpg"},
+            "ENFP": {"animal": "lion", "explain": "lion explanation", "img": "lion.jpg"},
+            "ENTP": {"animal": "sunbird", "explain": "sunbird explanation", "img": "sunbird.jpg"},
+            "ESTJ": {"animal": "giraffe", "explain": "giraffe explanation", "img": "giraffe.jpg"},
+            "ESFJ": {"animal": "gorilla", "explain": "gorilla explanation", "img": "gorilla.jpg"},
+            "ENFJ": {"animal": "capybara", "explain": "capybara explanation", "img": "capybara.jpg"},
+            "ENTJ": {"animal": "tiger", "explain": "tiger explanation", "img": "tiger.jpg"}
+        }
         function start() {
             $(".start").hide();
             $(".question").show();
@@ -67,13 +85,22 @@
             if (num == 13) {
                 $(".question").hide();
                 $(".result").show();
+                var mbti = "";
+                ($("#EI").val() < 2) ?  mbti += "I" : mbti += "E";
+                ($("#SN").val() < 2) ?  mbti += "N" : mbti += "S";
+                ($("#TF").val() < 2) ?  mbti += "F" : mbti += "T";
+                ($("#JP").val() < 2) ?  mbti += "P" : mbti += "J";
+                $("#img").attr("src", result[mbti]["img"]);
+                $("#animal").html(result[mbti]["animal"]);
+                $("#explain").html(result[mbti]["explain"]);
+            } else {
+                $(".progress-bar").attr("style", 'width: calc(100/12*'+num+'%');
+                $("#title").html(q[num]["title"]);
+                $("#type").val(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+                num++;
             }
-            $(".progress-bar").attr("style", 'width: calc(100/12*'+num+'%');
-            $("#title").html(q[num]["title"]);
-            $("#type").val(q[num]["type"]);
-            $("#A").html(q[num]["A"]);
-            $("#B").html(q[num]["B"]);
-            num++;
         }
     </script>
 </body>
