@@ -2,7 +2,7 @@ import requests
 import json
 
 city = "Seoul"
-apikey = "ffb8571cd4493995512cdbae33917f66"
+apikey = "####################"
 lang = "kr"
 # units - metric
 api = f"""http://api.openweathermap.org/data/2.5/\
